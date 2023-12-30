@@ -10,28 +10,36 @@ public class NumberBaseballGame {
     private int targetNumberLength;
 
     NumberBaseballGame(int targetNumberLength) {
+        isValidTargetNumberLength(targetNumberLength);
+        this.targetNumberLength = targetNumberLength;
+    }
+
+    private void isValidTargetNumberLength(int targetNumberLength) {
         if(targetNumberLength > 10)  {
             throw new UnsupportedOperationException("target number length should be less than 10");
         }
 
+    }
+
+    NumberBaseballGame(int targetNumberLength, String[] targetNumberArray) {
+        isValidTargetNumberLength(targetNumberLength);
+
         this.targetNumberLength = targetNumberLength;
-        gameStart();
+        this.targetNumberArray = targetNumberArray;
     }
 
     private void gameStart() {
-        gameStatus = GameStatus.START;
         targetNumberArray = getRandomNumberList();
-        gameStatus = GameStatus.ON_GOING;
     }
 
-    public BaseballGameResult calculate(String[] targetNumberArray, String[] numberArray) {
-        int numberOfStrike = calculateStrike(targetNumberArray, numberArray);
-        int numberOfBall = calculateBall(targetNumberArray, numberArray, numberOfStrike);
+    public BaseballGameResult calculate(String[] numberArray) {
+        int numberOfStrike = calculateStrike(numberArray);
+        int numberOfBall = calculateBall(numberArray, numberOfStrike);
 
         return new BaseballGameResult(numberOfStrike, numberOfBall);
     }
 
-    public int calculateStrike(String[] targetNumberArray, String[] numberArray) {
+    public int calculateStrike(String[] numberArray) {
         int count = 0;
 
         for(int i = 0; i < targetNumberLength; ++i) {
@@ -41,17 +49,13 @@ public class NumberBaseballGame {
         return count;
     }
 
-    public int calculateBall(String[] targetNumberArray, String[] numberArray, int numberOfStrike) {
+    public int calculateBall(String[] numberArray, int numberOfStrike) {
         Set<String> set = new HashSet<>();
 
         set.addAll(Arrays.asList(targetNumberArray));
         set.addAll(Arrays.asList(numberArray));
 
         return targetNumberArray.length + numberArray.length - set.size() - numberOfStrike;
-    }
-
-    public GameStatus currentGameStatus() {
-        return gameStatus;
     }
 
     public String[] getRandomNumberList() {
