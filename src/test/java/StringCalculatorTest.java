@@ -15,7 +15,7 @@ class StringCalculatorTest {
     }
 
     @ParameterizedTest
-    @CsvSource(value = {"2 + 3 * 4 / 2:10"}, delimiter = ':')
+    @CsvSource(value = {"2 + 3 * 4 / 2:10", "1 - 2 - 3:-4"}, delimiter = ':')
     void 문자열_계산(String inputString, int expected) {
         String[] target = inputString.split(" ");
 
