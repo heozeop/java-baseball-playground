@@ -14,10 +14,12 @@ class NumberBaseballGameTest {
     @Test
     void 랜덤_넘버_생성() {
         String[] source = game.getRandomNumberList();
+        int sourceLength = source.length;
 
         Set<String> set = new HashSet<>(Arrays.asList(source));
 
-        assertThat(source.length).isEqualTo(set.size());
+        assertThat(sourceLength).isEqualTo(set.size());
+        assertThat(sourceLength).isEqualTo(targetNumberLength);
     }
 
     @Test

@@ -67,7 +67,7 @@ public class NumberBaseballGame {
             subNumbers.set(1, "0");
         }
 
-        return numbers.toArray(new String[targetNumberLength]);
+        return subNumbers.toArray(new String[targetNumberLength]);
     }
 
 }
