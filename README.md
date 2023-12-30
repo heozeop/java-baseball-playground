@@ -27,9 +27,9 @@ ex) git checkout -b apply-feedback
 
 ## 구현할 기능 목록
 ### UI
-- [ ] InputView
-- [ ] ResultView
-- [ ] GameOverView
+- [x] InputView
+- [x] ResultView
+- [x] GameOverView
 
 ### Logic
 - [x] 랜덤한 수 생성하기
