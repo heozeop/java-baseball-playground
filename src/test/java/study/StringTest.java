@@ -1,10 +1,11 @@
 package study;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.*;
 
 public class StringTest {
     @Test
@@ -33,5 +34,15 @@ public class StringTest {
         String subTarget = target.substring(1,4);
 
         assertThat(subTarget).isEqualTo("1,2");
+    }
+
+    @DisplayName("chatAt 에서 찾고자 하는 내용이 없는 경우 에러 확인")
+    @Test
+    void chatAtErrorTest() {
+        String target = "abc";
+        int targetLength = target.length();
+        assertThatExceptionOfType(IndexOutOfBoundsException.class).isThrownBy(() -> {
+            target.charAt(targetLength + 1);
+        }).withMessageMatching("String index out of range: \\d+");
     }
 }
