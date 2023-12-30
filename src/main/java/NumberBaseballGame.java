@@ -1,6 +1,8 @@
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 public class NumberBaseballGame {
     private GameStatus gameStatus;
@@ -30,6 +32,15 @@ public class NumberBaseballGame {
         }
 
         return count;
+    }
+
+    public int calculateBall(String[] targetNumberArray, String[] numberArray, int numberOfStrike) {
+        Set<String> set = new HashSet<>();
+
+        set.addAll(Arrays.asList(targetNumberArray));
+        set.addAll(Arrays.asList(numberArray));
+
+        return targetNumberArray.length + numberArray.length - set.size() - numberOfStrike;
     }
 
     public GameStatus currentGameStatus() {

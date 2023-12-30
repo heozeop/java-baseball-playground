@@ -31,4 +31,25 @@ class NumberBaseballGameTest {
 
         assertThat(game.calculateStrike(compare, numbers)).isEqualTo(3);
     }
+
+    @Test
+    void 볼_확인() {
+        String[] numbers = {"1", "2", "3"};
+        String[] compare = {"1", "2", "3"};
+        int numberOfStrike = 3;
+        assertThat(game.calculateBall(numbers, compare, numberOfStrike)).isEqualTo(0);
+
+        compare = new String[]{"2", "3", "1"};
+        numberOfStrike = 0;
+        assertThat(game.calculateBall(numbers, compare, numberOfStrike)).isEqualTo(3);
+
+        compare = new String[]{"1", "3", "2"};
+        numberOfStrike = 1;
+        assertThat(game.calculateBall(numbers, compare, numberOfStrike)).isEqualTo(2);
+
+        compare = new String[]{"1", "4", "2"};
+        numberOfStrike = 1;
+        assertThat(game.calculateBall(numbers, compare, numberOfStrike)).isEqualTo(1);
+    }
+
 }
