@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -38,27 +39,13 @@ public class StringCalculator {
 
             return result;
         }
-
-        public static Integer operate(CalculateOperators calculateOperators, Integer value1, Integer value2) {
-            switch(calculateOperators) {
-                case PLUS:
-                    return value1 + value2;
-                case MINUS:
-                    return value1 - value2;
-                case MULTIPLE:
-                    return value1 * value2;
-                case DIVIDE:
-                    return value1 / value2;
-                default:
-                    throw new UnsupportedOperationException("operator not found");
-            }
-        }
     }
 
     public int calculate(String[] target) {
-        List<CalculateOperators> operators = this.filterOperator(target);
-        List<Integer> numbers = this.filterNumber(target);
+        List<CalculateOperators> operators = new ArrayList<>();
+        List<Integer> numbers = new ArrayList<>();
 
+        splitTargetIntoOperatorsAndNumbers(target, operators, numbers);
         isCalculable(operators, numbers);
 
         int numbersLength = numbers.size();
@@ -67,7 +54,7 @@ public class StringCalculator {
 
         Integer answer = numbers.get(0);
         for (; numberPointer < numbersLength; ++ numberPointer, ++operatorPointer) {
-            answer = CalculateOperators.operate(
+            answer = operate(
                     operators.get(operatorPointer),
                     answer,
                     numbers.get(numberPointer)
@@ -75,6 +62,18 @@ public class StringCalculator {
         }
 
         return answer;
+    }
+
+    private static void splitTargetIntoOperatorsAndNumbers(String[] target, List<CalculateOperators> operators, List<Integer> numbers) {
+        for(String item : target) {
+            CalculateOperators operator = CalculateOperators.fromString(item);
+            if (operator == null) {
+                numbers.add(Integer.parseInt(item));
+                continue;
+            }
+
+            operators.add(operator);
+        }
     }
 
     private static void isCalculable(List<CalculateOperators> operators, List<Integer> numbers) {
@@ -96,5 +95,20 @@ public class StringCalculator {
     
     private boolean isNumeric(String input) {
         return input != null && input.matches("[0-9.]+");
+    }
+
+    private Integer operate(CalculateOperators calculateOperators, Integer value1, Integer value2) {
+        switch(calculateOperators) {
+            case PLUS:
+                return value1 + value2;
+            case MINUS:
+                return value1 - value2;
+            case MULTIPLE:
+                return value1 * value2;
+            case DIVIDE:
+                return value1 / value2;
+            default:
+                throw new UnsupportedOperationException("operator not found");
+        }
     }
 }
