@@ -52,4 +52,28 @@ class NumberBaseballGameTest {
         assertThat(game.calculateBall(numbers, compare, numberOfStrike)).isEqualTo(1);
     }
 
+    @Test
+    void 스트라이크_볼_확인() {
+        String[] numbers = {"1", "2", "3"};
+        String[] compare = {"1", "2", "3"};
+
+        BaseballGameResult data = game.calculate(numbers, compare);
+        assertThat(data.numberOfStrike).isEqualTo(3);
+        assertThat(data.numberOfBall).isEqualTo(0);
+
+        compare = new String[]{"2", "3", "1"};
+        data = game.calculate(numbers, compare);
+        assertThat(data.numberOfStrike).isEqualTo(0);
+        assertThat(data.numberOfBall).isEqualTo(3);
+
+        compare = new String[]{"1", "3", "2"};
+        data = game.calculate(numbers, compare);
+        assertThat(data.numberOfStrike).isEqualTo(1);
+        assertThat(data.numberOfBall).isEqualTo(2);
+
+        compare = new String[]{"1", "4", "2"};
+        data = game.calculate(numbers, compare);
+        assertThat(data.numberOfStrike).isEqualTo(1);
+        assertThat(data.numberOfBall).isEqualTo(1);
+    }
 }

@@ -24,6 +24,13 @@ public class NumberBaseballGame {
         gameStatus = GameStatus.ON_GOING;
     }
 
+    public BaseballGameResult calculate(String[] targetNumberArray, String[] numberArray) {
+        int numberOfStrike = calculateStrike(targetNumberArray, numberArray);
+        int numberOfBall = calculateBall(targetNumberArray, numberArray, numberOfStrike);
+
+        return new BaseballGameResult(numberOfStrike, numberOfBall);
+    }
+
     public int calculateStrike(String[] targetNumberArray, String[] numberArray) {
         int count = 0;
 
