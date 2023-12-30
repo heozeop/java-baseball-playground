@@ -25,4 +25,13 @@ public class StringTest {
 
         assertThat(splitValue).containsExactly("1");
     }
+
+    @Test
+    void stringWithParenthesis() {
+        String target = "(1,2)";
+
+        String subTarget = target.substring(1,4);
+
+        assertThat(subTarget).isEqualTo("1,2");
+    }
 }
