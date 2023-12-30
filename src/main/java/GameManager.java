@@ -3,13 +3,13 @@ import java.util.Scanner;
 public class GameManager {
     public static void main(String[] args) {
         NumberBaseballGame numberBaseballGame = new NumberBaseballGame(3);
+        numberBaseballGame.gameStart();
 
         playGame(numberBaseballGame);
     }
 
     private static void playGame(NumberBaseballGame game) {
         Scanner in = new Scanner(System.in);
-        game.gameStart();
 
         String isOnGoing = "1";
         while(isOnGoing.equals("1")) {
