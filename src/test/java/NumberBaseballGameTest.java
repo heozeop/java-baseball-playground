@@ -16,4 +16,12 @@ class NumberBaseballGameTest {
     void 랜덤_넘버_생성() {
         assertThat(game.getRandomNumber()).isGreaterThanOrEqualTo(100).isLessThan(1000);
     }
+
+    @Test
+    void 스트라이크_확인() {
+        String[] numbers = {"1", "2", "3"};
+        String[] compare = {"1", "2", "3"};
+
+        assertThat(game.calculateStrike(compare, numbers)).isEqualTo(3);
+    }
 }
