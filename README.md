@@ -24,3 +24,16 @@ git checkout main // 기본 브랜치가 main인 경우
 git checkout -b 브랜치이름
 ex) git checkout -b apply-feedback
 ```
+
+## 구현할 기능 목록
+### UI
+- [ ] InputView
+- [ ] ResultView
+- [ ] GameOverView
+
+### Logic
+- [ ] 랜덤한 수 생성하기
+- [ ] 계산 하기
+    - [ ] 스트라이크 계산하기
+    - [ ] 볼 계산하기
+- [ ] 재시작 하기
