@@ -28,7 +28,7 @@ public class NumberBaseballGame {
         this.targetNumberArray = targetNumberArray;
     }
 
-    private void gameStart() {
+    public void gameStart() {
         targetNumberArray = getRandomNumberList();
     }
 
