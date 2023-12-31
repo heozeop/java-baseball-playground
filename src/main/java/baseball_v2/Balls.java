@@ -7,9 +7,13 @@ public class Balls {
     private final ArrayList<Ball> balls;
     private final int ballLength;
 
-    public Balls(int[] numbers) {
+    public Balls(int[] numbers, int ballLength) {
         balls = new ArrayList<>();
-        ballLength = numbers.length;
+        this.ballLength = ballLength;
+
+        if(ballLength != numbers.length) {
+            throw new IllegalArgumentException("number list의 길이가 맞지 않습니다.");
+        }
 
         for(int i = 0; i < ballLength; ++i) {
             balls.add(new Ball(i + 1, numbers[i]));
