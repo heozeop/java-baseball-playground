@@ -25,6 +25,7 @@ git checkout -b 브랜치이름
 ex) git checkout -b apply-feedback
 ```
 
+# v1
 ## 구현할 기능 목록
 ### UI
 - [x] baseball_v1.InputView
@@ -37,3 +38,20 @@ ex) git checkout -b apply-feedback
     - [x] 스트라이크 계산하기
     - [x] 볼 계산하기
 - [x] 재시작 하기
+
+# v2
+## 구현할 기능 목록
+### Logic
+- [ ] 랜덤한 수 생성하기
+- [ ] 입력한 수 validation
+    - [ ] 숫자만 입력받았는지
+    - [ ] 숫자가 1 ~ 9 사이인지
+- [ ] 계산하기
+    - [ ] 개별 포지션 검사하기
+    - [ ] 볼 여부 검사하기
+
+### UI
+- [ ] View
+    - [ ] Input
+    - [ ] Result
+    - [ ] GameOver
