@@ -1,3 +1,5 @@
+package baseball_v1;
+
 public class GameOverView {
 
     public static String prompt() {

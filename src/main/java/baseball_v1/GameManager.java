@@ -1,3 +1,5 @@
+package baseball_v1;
+
 import java.util.Scanner;
 
 public class GameManager {

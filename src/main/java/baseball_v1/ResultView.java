@@ -1,3 +1,5 @@
+package baseball_v1;
+
 public class ResultView {
     static String prompt(int strike, int ball) {
         if (ball < 1 && strike < 1)  {

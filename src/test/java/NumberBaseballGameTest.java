@@ -1,5 +1,7 @@
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
+import baseball_v1.BaseballGameResult;
+import baseball_v1.NumberBaseballGame;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;

@@ -1,6 +1,6 @@
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat; import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-import java.util.ArrayList;
+import baseball_v1.GameUtils;
 import java.util.Arrays;
 import java.util.List;
 import org.junit.jupiter.api.Test;
