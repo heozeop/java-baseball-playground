@@ -42,7 +42,7 @@ ex) git checkout -b apply-feedback
 # v2
 ## 구현할 기능 목록
 ### Logic
-- [ ] 랜덤한 수 생성하기
+- [x] 랜덤한 수 생성하기
 - [ ] 입력한 수 validation
     - [ ] 숫자만 입력받았는지
     - [ ] 숫자가 1 ~ 9 사이인지
