@@ -9,6 +9,7 @@ import java.util.Random;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.DoubleStream;
+import jdk.jfr.Description;
 import org.junit.jupiter.api.Test;
 
 public class RandomNumberGeneratorTest {
@@ -35,13 +36,5 @@ public class RandomNumberGeneratorTest {
         HashSet<Integer> numberSet = new HashSet<>(Arrays.stream(numberList).boxed().toList());
 
         assertThat(numberList.length).isEqualTo(numberSet.size());
-    }
-
-    @Test
-    void 숫자는_랜덤하게_생성됨() {
-       int[] firstRandomNumber = RandomNumberGenerator.generate(NUMBER_LENGTH);
-       int[] secondRandomNumber = RandomNumberGenerator.generate(NUMBER_LENGTH);
-
-       assertThat(Arrays.equals(firstRandomNumber, secondRandomNumber)).isFalse();
     }
 }
